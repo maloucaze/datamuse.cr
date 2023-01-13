@@ -1,0 +1,13 @@
+name: datamuse
+description: A Crystal client library for the Datamuse HTTP API.
+version: 0.1.0
+
+authors:
+  - Nick Maloucaze <nickmaloucaze@gmail.com>
+
+homepage: https://github.com/maloucaze/datamuse.cr
+repository: https://github.com/maloucaze/datamuse.cr
+
+crystal: 1.7.0
+
+license: MIT
