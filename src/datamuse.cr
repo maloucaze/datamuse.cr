@@ -68,8 +68,6 @@ module Datamuse
     end
 
     uri = URI.new(scheme: "https", host: HOST, path: "/words", query: params)
-
-    pp uri
     res = HTTP::Client.get(uri)
 
     res.success? ? Array(Word).from_json(res.body) : [] of Word
