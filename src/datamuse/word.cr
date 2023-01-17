@@ -7,7 +7,7 @@ module Datamuse
     @parts_of_speech : Array(PartOfSpeech)? = nil
 
     @[JSON::Field(ignore: true)]
-    @pronunciation : Array(Arpabet::Phoneme)? = nil
+    @pronunciation : Array(Phono::Phoneme)? = nil
 
     @[JSON::Field(ignore: true)]
     @word_frequency : Float32? = nil
@@ -57,7 +57,7 @@ module Datamuse
     # The pronunciation of the word (ARPABET). Extracted from `#tags`.
     #
     # This result is memoized.
-    def pronunciation : Array(Arpabet::Phoneme)?
+    def pronunciation : Array(Phono::Phoneme)?
       mem_pron = @pronunciation
       return mem_pron unless mem_pron.nil?
 
@@ -66,7 +66,7 @@ module Datamuse
       pronunciation = nil
       @tags.not_nil!.each do |tag|
         if tag.starts_with?("pron:")
-          pronunciation = Arpabet.parse(tag.split(':')[1])
+          pronunciation = Phono::ARPABET.parse(tag.split(':')[1])
           break
         end
       end

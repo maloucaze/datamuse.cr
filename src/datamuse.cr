@@ -2,8 +2,8 @@ require "http/client"
 require "json"
 require "uri"
 
-require "./datamuse/arpabet"
-require "./datamuse/arpabet/phoneme"
+require "phono"
+
 require "./datamuse/constraints"
 require "./datamuse/metadata"
 require "./datamuse/part_of_speech"
@@ -73,3 +73,18 @@ module Datamuse
     res.success? ? Array(Word).from_json(res.body) : [] of Word
   end
 end
+
+constraints = Datamuse::Constraints.new(
+  perfectly_rhymes_with: "declare"
+)
+
+metadata = Datamuse::Metadata.new(
+  show_pronunciation: true,
+  show_parts_of_speech: true
+)
+
+a = Datamuse.find_words(constraints, metadata)
+
+pp a[0]
+
+pp a[0].pronunciation

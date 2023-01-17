@@ -10,4 +10,8 @@ repository: https://github.com/maloucaze/datamuse.cr
 
 crystal: 1.7.0
 
+dependencies:
+  phono:
+    github: maloucaze/phono.cr
+
 license: MIT
