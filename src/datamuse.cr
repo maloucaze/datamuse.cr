@@ -73,18 +73,3 @@ module Datamuse
     res.success? ? Array(Word).from_json(res.body) : [] of Word
   end
 end
-
-constraints = Datamuse::Constraints.new(
-  perfectly_rhymes_with: "declare"
-)
-
-metadata = Datamuse::Metadata.new(
-  show_pronunciation: true,
-  show_parts_of_speech: true
-)
-
-a = Datamuse.find_words(constraints, metadata)
-
-pp a[0]
-
-pp a[0].pronunciation
