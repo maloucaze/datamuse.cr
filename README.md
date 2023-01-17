@@ -5,12 +5,11 @@
 
 ### Note
 
-> This is a work in progress.
+> 🚧 This is a work in progress. 🚧
 
 #### TODO
 
 - Implement method to send requests to */sug*
-- Refactor and extract Arpabet-related code into a separate shard
 - Review and implement specs
 
 Searching for words on */words* given a set of constraints and a vocabulary is
@@ -23,7 +22,7 @@ fully supported.
 ```yaml
 dependencies:
   datamuse:
-    github: maloucaze/datamuse
+    github: maloucaze/datamuse.cr
 ```
 
 2. Run `shards install`
@@ -70,9 +69,9 @@ Datamuse.find_words(constraints, metadata)
 #       @num_syllables=1,
 #       @parts_of_speech=[Datamuse::PartOfSpeech::Adjective],
 #       @pronunciation=[
-#         Datamuse::Arpabet::Phoneme(@code="B", @stress=nil),
-#         Datamuse::Arpabet::Phoneme(@code="EH", @stress=Primary),
-#         Datamuse::Arpabet::Phoneme(@code="R", @stress=nil)
+#         Phono::Phoneme(@arpabet="B", @stress=nil),
+#         Phono::Phoneme(@arpabet="EH", @stress=Primary),
+#         Phono::Phoneme(@arpabet="R", @stress=nil)
 #       ],
 #       @score=17522,
 #       @tags=["adj", "pron:B EH1 R "],
@@ -80,6 +79,13 @@ Datamuse.find_words(constraints, metadata)
 #       @word_frequency=nil
 #     ), ...]
 ```
+
+## Dependencies
+
+**datamuse.cr** relies on the following dependencies:
+
+- [maloucaze/phono.cr](https://github.com/maloucaze/phono.cr) - to parse ARPABET
+strings
 
 ## Contributors
 

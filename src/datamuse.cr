@@ -2,8 +2,8 @@ require "http/client"
 require "json"
 require "uri"
 
-require "./datamuse/arpabet"
-require "./datamuse/arpabet/phoneme"
+require "phono"
+
 require "./datamuse/constraints"
 require "./datamuse/metadata"
 require "./datamuse/part_of_speech"
